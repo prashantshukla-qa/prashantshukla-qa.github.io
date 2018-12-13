@@ -171,3 +171,7 @@ typings/
 
 # package json lock file
 package-lock.json
+
+# Jade and Gulp Files
+_includes/
+_site/
