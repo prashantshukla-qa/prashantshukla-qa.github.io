@@ -548,7 +548,7 @@ h2 {
   h2 {
     padding: 50px 0 50px; } }
 
-h2, header nav a, header .kicker, footer .lockup a, #h_small #nav_small a, #h_small .kicker {
+h2, header nav a, header .kicker, footer .lockup a, .h_small_height #nav_small a, .h_small_height .kicker {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase; }
@@ -1260,30 +1260,31 @@ form {
     margin-top: 30px; } }
 
 #h_small {
-  height: 170px;
-  background: url(../img/galway2.jpg) center center;
-  background-size: cover; }
-  #h_small #nav_small {
+  height: 100px; }
+
+.h_small_height {
+  height: 100px; }
+  .h_small_height #nav_small {
     float: right;
     margin: 30px 30px 30px; }
-    #h_small #nav_small a {
+    .h_small_height #nav_small a {
       display: inline-block;
       margin-left: 10px;
       color: rgba(0, 0, 0, 0.5); }
-      #h_small #nav_small a:hover {
+      .h_small_height #nav_small a:hover {
         color: black; }
-  #h_small #h1_small {
+  .h_small_height #h1_small {
     display: inline-block;
     font-size: 72px;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.05cm; }
-    #h_small #h1_small span {
+    .h_small_height #h1_small span {
       display: inline-block;
       padding: 0.2em 0.5em;
       border: rgba(0, 0, 0, 0.5) solid 10px; }
-  #h_small .kicker {
+  .h_small_height .kicker {
     text-align: center;
     line-height: 1;
     color: rgba(0, 0, 0, 0.5); }

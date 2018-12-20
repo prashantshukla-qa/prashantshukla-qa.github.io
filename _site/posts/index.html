@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <a class="back-to-top" href="#">Back To Top</a><div class="logo" id="container"></div><header id="h_small"><nav id="nav_small"><a href="/#about-me">About Me</a><a href="/#Experience">Experience</a><a href="/#Blog">Blog</a><a href="/#Details">Contact Me</a></nav></header>
+    <div class="container-fluid"><nav class="navbar navbar-expand-sm navbar-light nav-xs-style height-100"><div class="col-9 col-sm-3"><a class="navbar-brand logo" href="/#"> </a></div><button class="col-3 navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="navbar-toggler-icon"></span></button><div class="col-12 col-sm-9 collapse-xs-style"><div class="collapse navbar-collapse float-right" id="myNavbar"><ul class="navbar-nav"><li class="active"><a class="nav-link color-prime-7 font-size-17" href="/#">Home</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#about-me">About Me</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#Experience">Experience</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#Blog">Blog</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#Details">Contact Me        </a></li></ul></div></div></nav><div class="h_small_height" id="particles-js"></div></div><a class="back-to-top" href="#">Back To Top</a><header id="h_small"></header>
 
 
 
@@ -47,12 +47,12 @@
     <script src="/assets/js/particles.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script>
-      particlesJS.load('particles-js', 'assets/particles.json', function() {
+      particlesJS.load('particles-js', '/assets/particles.json', function() {
         console.log('callback - particles.js config loaded');
       });
     </script>
     <script>
-        particlesJS.load('footer-particles', 'assets/particles.json', function() {
+        particlesJS.load('footer-particles', '/assets/particles.json', function() {
           console.log('callback - particles.js config loaded');
         });
       </script>
