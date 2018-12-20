@@ -878,6 +878,8 @@ footer {
   color: #303e49;
   font-size: 72px;
   font-weight: 300; }
+  .biglink -MQ(S) {
+    font-size: 14px; }
 
 .biglink:hover {
   transform: scale(1.02); }
