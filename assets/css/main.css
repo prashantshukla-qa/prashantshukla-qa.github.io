@@ -706,14 +706,17 @@ header .kicker {
 
 #particles-js {
   width: 100%;
-  height: 70%;
   position: absolute;
-  top: 0;
+  top: auto;
   left: 0; }
+  @media only screen and (min-width: 220px) {
+    #particles-js {
+      height: 300px; } }
 
 footer {
-  background: url(../img/galway3.jpg) center center;
-  background-size: cover; }
+  position: absolute;
+  text-align: center;
+  width: 100%; }
   footer .lockup {
     padding: 50px 30px; }
     footer .lockup::after {
@@ -731,6 +734,12 @@ footer {
       margin-right: 30px; }
       footer .lockup a:hover {
         color: black; }
+
+#footer-particles {
+  position: absolute;
+  height: 140px;
+  width: 100%;
+  z-index: -1; }
 
 @media only screen and (min-width: 220px) {
   .about-lock {
@@ -762,7 +771,12 @@ footer {
       order: 3;
       -ms-flex-order: 3; }
       .about-lock .flip-container:hover .flipper, .about-lock .flip-container.hover .flipper {
-        transform: rotateY(180deg); }
+        transform: rotateY(180deg); } }
+    @media only screen and (min-width: 220px) and (min-width: 220px) {
+      .about-lock .flip-container {
+        margin: auto; } }
+
+@media only screen and (min-width: 220px) {
     .about-lock .front, .about-lock .back {
       height: 200px;
       width: 200px;
@@ -782,13 +796,17 @@ footer {
     .about-lock .back {
       transform: rotateY(180deg); }
     .about-lock .flaticon-cogwheel28 {
-      display: none; }
+      display: none;
+      margin: auto; }
     .about-lock .flaticon-computer1 {
-      display: none; }
+      display: none;
+      margin: auto; }
     .about-lock .flaticon-hosting {
-      display: none; }
+      display: none;
+      margin: auto; }
     .about-lock .flaticon-computers13 {
-      display: none; } }
+      display: none;
+      margin: auto; } }
 
 @media only screen and (min-width: 650px) {
   .about-lock {
