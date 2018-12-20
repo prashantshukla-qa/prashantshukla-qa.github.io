@@ -638,15 +638,11 @@ h2, header nav a, header .kicker, footer .lockup a, #h_small #nav_small a, #h_sm
 
 @media only screen and (min-width: 220px) {
   header {
-    height: 300px; } }
+    max-height: 300px; } }
 
 @media only screen and (min-width: 650px) {
   header {
-    height: 390px; } }
-
-@media only screen and (min-width: 1070px) {
-  header {
-    height: 450px; } }
+    height: 300px; } }
 
 header nav {
   float: right;
