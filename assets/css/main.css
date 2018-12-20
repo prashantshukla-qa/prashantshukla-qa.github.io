@@ -537,7 +537,8 @@ body {
   font-family: 'Open Sans' sans-serif;
   color: #666;
   -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%; }
+  -webkit-text-size-adjust: 100%;
+  width: 100%; }
 
 h2 {
   color: #303e49;
@@ -857,13 +858,13 @@ footer {
     margin-left: 0; }
 
 .bar {
-  width: 250px;
+  max-width: 250px;
   height: 0px;
   margin: 40px auto 40px;
   border-top: 4px solid #303e49; }
 
 .bar-blog {
-  width: 250px;
+  max-width: 250px;
   height: 0px;
   margin: 20px auto 20px;
   border-top: 4px solid #303e49; }
@@ -1183,7 +1184,7 @@ form {
   .title:hover {
     padding-left: 10px; }
   .post-title {
-    font-size: 42px;
+    font-size: 42px !important;
     letter-spacing: -1px;
     line-height: 1;
     padding-left: 10px; }
