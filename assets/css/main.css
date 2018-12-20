@@ -1263,7 +1263,7 @@ form {
   height: 100px; }
 
 .h_small_height {
-  height: 100px; }
+  height: 100px !important; }
   .h_small_height #nav_small {
     float: right;
     margin: 30px 30px 30px; }
