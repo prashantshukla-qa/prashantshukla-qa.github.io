@@ -99,7 +99,7 @@
 <div class="comment">
   
   </div>
- <footer><div class="lockup"><div class="content-wrap"><nav><a href="#about-me">About Me</a><a href="#Experenice">Experience</a><a href="#Blog">Blog</a><a href="#Details">Contact Me</a></nav><p class="copyright">Prashant Shukla 2018</p></div></div></footer>
+ <div><footer><div class="lockup"><div class="content-wrap"><nav><a href="#about-me">About Me</a><a href="#Experenice">Experience</a><a href="#Blog">Blog</a><a href="#Details">Contact Me</a></nav><p class="copyright">Prashant Shukla 2018</p></div></div></footer><div id="footer-particles"></div></div>
 
     <script src="assets/js/jquery-2.1.4.min.js"></script>
     <script src="assets/js/functions.js"></script>
@@ -112,5 +112,10 @@
         console.log('callback - particles.js config loaded');
       });
     </script>
+    <script>
+        particlesJS.load('footer-particles', 'assets/particles.json', function() {
+          console.log('callback - particles.js config loaded');
+        });
+      </script>
   </body>
 </html>
