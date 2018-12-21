@@ -527,13 +527,10 @@ img::-moz-selection {
   background: transparent; }
 
 body {
-  -webkit-tap-highlight-color: #FFF498;
-  width: 100%;
-  margin: 0;
-  padding: 0; }
+  -webkit-tap-highlight-color: #FFF498; }
 
 body {
-  background: white;
+  background: transparent;
   font-size: 14px;
   line-height: 1.6;
   font-family: 'Open Sans' sans-serif;
@@ -623,7 +620,7 @@ header nav {
 
 header h1 {
   text-align: center;
-  color: rgba(0, 0, 0, 0.5);
+  color: #000000;
   text-transform: uppercase;
   letter-spacing: 0.05cm;
   margin-bottom: 20px;
@@ -646,7 +643,7 @@ header h1 {
   header h1 span {
     display: inline-block;
     padding: 0.2em 0.5em;
-    border: rgba(0, 0, 0, 0.5) solid 10px; }
+    border: #000000 solid 10px; }
     @media only screen and (min-width: 220px) {
       header h1 span {
         padding: 0.2em 0.5em; } }
@@ -666,7 +663,9 @@ header .kicker {
   width: 100%;
   position: absolute;
   top: auto;
-  left: 0; }
+  left: 0;
+  z-index: -1;
+  background-color: aliceblue; }
   @media only screen and (min-width: 220px) {
     #particles-js {
       height: 300px; } }
@@ -695,6 +694,7 @@ footer {
 
 #footer-particles {
   position: absolute;
+  background-color: aliceblue;
   height: 140px;
   width: 100%;
   z-index: -1; }
