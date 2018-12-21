@@ -47,16 +47,16 @@
     .back
       transform: rotateY(180deg)
 
-    .flaticon-cogwheel28
+    .flaticon-terminal-windows
       display: none
       margin: auto
-    .flaticon-computer1
+    .flaticon-brain
+      display: none
+      margin: auto
+    .flaticon-machine
       display: none
       margin: auto
     .flaticon-hosting
-      display: none
-      margin: auto
-    .flaticon-computers13
       display: none
       margin: auto
 
@@ -69,16 +69,16 @@
     +align-items(center)
     +justify-content(space-between)
 
-    .flaticon-cogwheel28
+    .flaticon-terminal-windows
       +order(1)
       display: block
-    .flaticon-computer1
+    .flaticon-brain
       +order(2)
       display: block
-    .flaticon-hosting
+    .flaticon-machine
       +order(4)
       display: block
-    .flaticon-computers13
+    .flaticon-hosting
       +order(5)
       display: block
 
@@ -101,6 +101,9 @@
 
 
 .blurb
+  background-color: #ffffff
+  border-radius: 0.25em
+  box-shadow: 0 3px 0 darken($background, 5%)
   max-width: 750px
   padding: 0 15px
   margin: 50px auto

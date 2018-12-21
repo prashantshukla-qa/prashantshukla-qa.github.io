@@ -423,12 +423,21 @@ th {
 .icon-git-square:before {
   content: "\f1d2"; }
 
+/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 21/12/2018 14:33
+  	*/
 @font-face {
   font-family: "Flaticon";
   src: url("0-tools/flaticon.eot");
   src: url("0-tools/flaticon.eot#iefix") format("embedded-opentype"), url("0-tools/flaticon.ttf") format("truetype"), url("0-tools/flaticon.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("0-tools//Flaticon.svg#Flaticon") format("svg"); } }
 
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before,
@@ -440,19 +449,31 @@ th {
   margin-left: 20px; }
 
 .flaticon-github:before {
-  content: "\e001"; }
+  content: "\f100"; }
 
 .flaticon-twitter:before {
-  content: "\e002"; }
+  content: "\f101"; }
 
 .flaticon-facebook:before {
-  content: "\e003"; }
+  content: "\f102"; }
 
 .flaticon-linkedin:before {
-  content: "\e004"; }
+  content: "\f103"; }
 
 .flaticon-youtube:before {
-  content: "\e005"; }
+  content: "\f104"; }
+
+.flaticon-terminal-windows:before {
+  content: "\f105"; }
+
+.flaticon-hosting:before {
+  content: "\f106"; }
+
+.flaticon-machine:before {
+  content: "\f107"; }
+
+.flaticon-brain:before {
+  content: "\f108"; }
 
 .gigantic, .huge, .large, .bigger, .big,
 h1, h2, h3, h4, h5, h6 {
@@ -753,16 +774,16 @@ footer {
       transform: rotateY(0deg); }
     .about-lock .back {
       transform: rotateY(180deg); }
-    .about-lock .flaticon-cogwheel28 {
+    .about-lock .flaticon-terminal-windows {
       display: none;
       margin: auto; }
-    .about-lock .flaticon-computer1 {
+    .about-lock .flaticon-brain {
+      display: none;
+      margin: auto; }
+    .about-lock .flaticon-machine {
       display: none;
       margin: auto; }
     .about-lock .flaticon-hosting {
-      display: none;
-      margin: auto; }
-    .about-lock .flaticon-computers13 {
       display: none;
       margin: auto; } }
 
@@ -786,25 +807,25 @@ footer {
     -o-justify-content: space-between;
     justify-content: space-between;
     -ms-flex-pack: justify; }
-    .about-lock .flaticon-cogwheel28 {
+    .about-lock .flaticon-terminal-windows {
       box-ordinal-group: 1;
       -moz-order: 1;
       order: 1;
       -ms-flex-order: 1;
       display: block; }
-    .about-lock .flaticon-computer1 {
+    .about-lock .flaticon-brain {
       box-ordinal-group: 2;
       -moz-order: 2;
       order: 2;
       -ms-flex-order: 2;
       display: block; }
-    .about-lock .flaticon-hosting {
+    .about-lock .flaticon-machine {
       box-ordinal-group: 4;
       -moz-order: 4;
       order: 4;
       -ms-flex-order: 4;
       display: block; }
-    .about-lock .flaticon-computers13 {
+    .about-lock .flaticon-hosting {
       box-ordinal-group: 5;
       -moz-order: 5;
       order: 5;
@@ -825,6 +846,9 @@ footer {
     max-width: 980px; } }
 
 .blurb {
+  background-color: #ffffff;
+  border-radius: 0.25em;
+  box-shadow: 0 3px 0 #d6dee4;
   max-width: 750px;
   padding: 0 15px;
   margin: 50px auto;
