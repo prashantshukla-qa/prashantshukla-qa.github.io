@@ -665,7 +665,7 @@ header .kicker {
   top: auto;
   left: 0;
   z-index: -1;
-  background-color: aliceblue; }
+  background-color: #4caf50; }
   @media only screen and (min-width: 220px) {
     #particles-js {
       height: 300px; } }
@@ -694,7 +694,7 @@ footer {
 
 #footer-particles {
   position: absolute;
-  background-color: aliceblue;
+  background-color: #4caf50;
   height: 140px;
   width: 100%;
   z-index: -1; }
