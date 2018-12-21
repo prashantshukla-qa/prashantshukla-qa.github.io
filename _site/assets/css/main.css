@@ -465,7 +465,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -2px; }
 
 .huge, h1 {
-  font-size: 608px;
   line-height: 1.05;
   letter-spacing: -1px; }
 
@@ -528,7 +527,10 @@ img::-moz-selection {
   background: transparent; }
 
 body {
-  -webkit-tap-highlight-color: #FFF498; }
+  -webkit-tap-highlight-color: #FFF498;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
 
 body {
   background: white;
@@ -545,7 +547,7 @@ h2 {
   text-align: center;
   padding: 50px 0 30px; }
 
-@media sceen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
   h2 {
     padding: 50px 0 50px; } }
 
@@ -851,11 +853,19 @@ footer {
     transform: scale(1.2); }
   .social-links .glyph-icon:before {
     display: block;
-    font-size: 60px;
     line-height: 70px;
     color: #303e49;
     transition: all 0.15s ease-out 0s;
     margin-left: 0; }
+    @media only screen and (min-width: 220px) {
+      .social-links .glyph-icon:before {
+        font-size: 24px; } }
+    @media only screen and (min-width: 650px) {
+      .social-links .glyph-icon:before {
+        font-size: 40px; } }
+    @media only screen and (min-width: 1070px) {
+      .social-links .glyph-icon:before {
+        font-size: 60px; } }
 
 .bar {
   max-width: 250px;
@@ -875,11 +885,17 @@ footer {
 .biglink {
   display: inline-block;
   margin-bottom: 70px;
-  color: #303e49;
-  font-size: 72px;
-  font-weight: 300; }
-  .biglink -MQ(S) {
-    font-size: 14px; }
+  color: #303e49; }
+  @media only screen and (min-width: 1070px) {
+    .biglink {
+      font-size: 72px;
+      font-weight: 300; } }
+  @media only screen and (min-width: 650px) {
+    .biglink {
+      font-size: 42px; } }
+  @media only screen and (min-width: 220px) {
+    .biglink {
+      font-size: 24px; } }
 
 .biglink:hover {
   transform: scale(1.02); }

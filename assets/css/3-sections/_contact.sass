@@ -14,11 +14,17 @@
 
   .glyph-icon:before
     display: block
-    font-size: 60px
     line-height: 70px
     color: $color-1
     +transition()
     margin-left: 0
+    +MQ(S)
+      font-size: 24px
+    +MQ(M)
+      font-size: 40px
+    +MQ(L)
+      font-size: 60px
+
 
 
 
@@ -42,11 +48,14 @@
   display: inline-block
   margin-bottom: 70px
   color: $color-1
-  font:
-    size: 72px
-    weight: 300
-  -MQ(S)
-    font-size: 14px
+  +MQ(L)
+    font:
+      size: 72px
+      weight: 300
+  +MQ(M)
+    font-size: 42px
+  +MQ(S)
+    font-size: 24px
 
 .biglink
   &:hover
