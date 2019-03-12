@@ -574,6 +574,9 @@ h2, header nav a, header .kicker, footer .lockup a, .h_small_height #nav_small a
   font-weight: 700;
   text-transform: uppercase; }
 
+.logo {
+  display: none; }
+
 @media only screen and (min-width: 650px) {
   .logo {
     height: 70px;
