@@ -692,6 +692,9 @@ header .kicker {
   background-color: #4caf50; }
   @media only screen and (min-width: 220px) {
     #particles-js {
+      height: 250px; } }
+  @media only screen and (min-width: 650px) {
+    #particles-js {
       height: 300px; } }
 
 footer {
@@ -1208,6 +1211,17 @@ form {
   -ms-flex-pack: justify; }
   .title:hover {
     padding-left: 10px; }
+
+.blog-img {
+  padding: 2px;
+  background-color: green;
+  transition: transform .2s;
+  width: 100%;
+  height: auto;
+  margin: 0 auto; }
+
+.blog-img:hover {
+  transform: scale(1.5); }
 
 @media only screen and (min-width: 220px) {
   .post-header {

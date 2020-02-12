@@ -11,10 +11,8 @@ Console `Javascript` comes in very handy while doing quick manipulation of HTML 
 
 _Example: Getting count or text of gooogle home page result table_
 
-![google page](/assets/img/blog-images/google-table-result.png){:height="50%" width="50%"}
+![google page](/assets/img/blog-images/google-table-result.png){:class="blog-img"}
 
 Use following js snippet to get size or text content of the component
 
-{% highlight javascript %}
-$$('table.nrgt .l').map(e=>e.innerText)
-{% endhighlight %}
+`$$('table.nrgt .l').map(e=>e.innerText)`

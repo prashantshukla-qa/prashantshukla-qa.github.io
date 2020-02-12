@@ -8,8 +8,16 @@
 
     padding-left: 10px
 
+.blog-img 
+  padding: 2px
+  background-color: green
+  transition: transform .2s 
+  width: 100%
+  height: auto
+  margin: 0 auto
 
-
+.blog-img:hover 
+  transform: scale(1.5)
 
 +MQ(S)
   .post-header
@@ -38,8 +46,6 @@
   .post-link
     display: block
     font-size: 40px
-
-
   .post-wrapper
     max-width: 270px
     margin: 0 auto
@@ -66,7 +72,6 @@
     height: 190px
     margin-bottom: 30px
     margin-top: 30px
-
 
 
 +MQ(M)

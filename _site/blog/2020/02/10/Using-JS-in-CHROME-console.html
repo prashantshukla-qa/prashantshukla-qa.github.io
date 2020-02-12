@@ -14,56 +14,6 @@
     <div class="container-fluid"><nav class="navbar navbar-expand-sm navbar-light nav-xs-style height-100"><div class="col-9 col-sm-3"><a class="navbar-brand logo" href="/#"> </a></div><button class="col-3 navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="navbar-toggler-icon"></span></button><div class="col-12 col-sm-9 collapse-xs-style"><div class="collapse navbar-collapse float-right" id="myNavbar"><ul class="navbar-nav"><li class="active"><a class="nav-link color-prime-7 font-size-17" href="/#">Home</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#about-me">About Me</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#Experience">Experience</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#Blog">Blog</a></li><li><a class="nav-link color-prime-7 font-size-17" href="/#Details">Contact Me        </a></li></ul></div></div></nav><div id="particles-js"> </div><a class="back-to-top" href="#">Back To Top</a><header id="home"><h1><span>Prashant Shukla</span></h1><p class="kicker">Test Engineer // Automation Trainer // QA Coach // Mentor</p></header></div>
 
 
-<!-- <script type="text/javascript">
-			// needs to be a string for jquery.cookie
-			var postId = '1';
-			$(function()
-			{
-				// initialize kudos
-				$("figure.kudoable").kudoable();
-				// check to see if user has already kudod
-				// fyi cookies do not work when you are viewing this as a file
-				if($.cookie(postId) == 'true') {
-					// make kudo already kudod
-					$("figure.kudoable").removeClass("animate").addClass("complete");
-					// your server would take care of the proper kudos count, but because this is a
-					// static page, we need to set it here so it doesn't become -1 when you remove
-					// the kudos after a reload
-					$(".num").html(1);
-				}
-				// when kudoing
-				$("figure.kudo").bind("kudo:active", function(e)
-				{
-					console.log("kudoing active");
-				});
-				// when not kudoing
-				$("figure.kudo").bind("kudo:inactive", function(e)
-				{
-					console.log("kudoing inactive");
-				});
-				// after kudo'd
-				$("figure.kudo").bind("kudo:added", function(e)
-				{
-					var element = $(this);
-					// ajax'y stuff or whatever you want
-					console.log("Kodo'd:", element.data('id'), ":)");
-					// set cookie so user cannot kudo again for 7 days
-					$.cookie(postId, 'true', { expires: 7 });
-				});
-				// after removing a kudo
-				$("figure.kudo").bind("kudo:removed", function(e)
-				{
-					var element = $(this);
-					// ajax'y stuff or whatever you want
-					console.log("Un-Kudo'd:", element.data('id'), ":(");
-					// remove cookie
-					$.removeCookie(postId);
-				});
-			});
-		</script> -->
-
-
-
 <div class="post-header">
   <h1 class="post-title">Using JS in chrome developer tools</h1>
 </div>
@@ -83,11 +33,11 @@
 
 <p><em>Example: Getting count or text of gooogle home page result table</em></p>
 
-<p><img src="/assets/img/blog-images/google-table-result.png" alt="google page" height="50%" width="50%" /></p>
+<p><img src="/assets/img/blog-images/google-table-result.png" alt="google page" class="blog-img" /></p>
 
 <p>Use following js snippet to get size or text content of the component</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$$</span><span class="p">(</span><span class="s1">'table.nrgt .l'</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">e</span><span class="o">=&gt;</span><span class="nx">e</span><span class="p">.</span><span class="nx">innerText</span><span class="p">)</span></code></pre></figure>
+<p><code class="highlighter-rouge">$$('table.nrgt .l').map(e=&gt;e.innerText)</code></p>
 
    </div>
   </article>
