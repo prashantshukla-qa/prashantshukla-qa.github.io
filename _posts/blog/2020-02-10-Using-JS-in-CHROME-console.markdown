@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Using JS in chrome developer tools"
+title:  "A JS trick to get element array count and text"
 date:   2020-02-10 23:15:00 +0530
 categories: blog
 ---
@@ -11,8 +11,17 @@ Console `Javascript` comes in very handy while doing quick manipulation of HTML 
 
 _Example: Getting count or text of gooogle home page result table_
 
-![google page](/assets/img/blog-images/google-table-result.png){:class="blog-img"}
-
 Use following js snippet to get size or text content of the component
 
 `$$('table.nrgt .l').map(e=>e.innerText)`
+
+<a href="/assets/img/blog-images/google-table-result.png" data-lightbox="js-example-1">
+    <img src="/assets/img/blog-images/google-table-result.png" alt="Example of element count on Google" style="width:40%">
+<a>
+
+##### Explanation
+
+* `$$` in console returns array of elements based on css provided
+  * e.g. `$$('table.nrgt')` returns all the elements with tag table and class nrgt
+  * `$x` returns elements with provided xpath
+  * single `$` returns the first element satisfying the css selector criteria

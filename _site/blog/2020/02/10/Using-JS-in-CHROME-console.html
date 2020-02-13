@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link href="/assets/css/lightbox.css" rel="stylesheet" />
   </head>
   <body>
 
@@ -15,7 +16,7 @@
 
 
 <div class="post-header">
-  <h1 class="post-title">Using JS in chrome developer tools</h1>
+  <h1 class="post-title">A JS trick to get element array count and text</h1>
 </div>
 <div class="post-header">
   <p class="post-meta">February 10, 2020 — 23:15</p>
@@ -33,11 +34,25 @@
 
 <p><em>Example: Getting count or text of gooogle home page result table</em></p>
 
-<p><img src="/assets/img/blog-images/google-table-result.png" alt="google page" class="blog-img" /></p>
-
 <p>Use following js snippet to get size or text content of the component</p>
 
 <p><code class="highlighter-rouge">$$('table.nrgt .l').map(e=&gt;e.innerText)</code></p>
+
+<p><a href="/assets/img/blog-images/google-table-result.png" data-lightbox="js-example-1">
+    <img src="/assets/img/blog-images/google-table-result.png" alt="Example of element count on Google" style="width:40%" />
+<a></a></a></p>
+
+<h5 id="explanation">Explanation</h5>
+
+<ul>
+  <li><code class="highlighter-rouge">$$</code> in console returns array of elements based on css provided
+    <ul>
+      <li>e.g. <code class="highlighter-rouge">$$('table.nrgt')</code> returns all the elements with tag table and class nrgt</li>
+      <li><code class="highlighter-rouge">$x</code> returns elements with provided xpath</li>
+      <li>single <code class="highlighter-rouge">$</code> returns the first element satisfying the css selector criteria</li>
+    </ul>
+  </li>
+</ul>
 
    </div>
   </article>
@@ -55,6 +70,8 @@
     <script src="/assets/js/modernizr.js"></script>
     <script src="/assets/js/particles.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+
     <script>
       particlesJS.load('particles-js', '/assets/js/particles-config/green-snow.json', function() {
         console.log('callback - particles.js config loaded');
