@@ -11,7 +11,7 @@ Console `Javascript` comes in very handy while doing quick manipulation of HTML 
 
 _Example: Getting count or text of gooogle home page result table_
 
-Use following js snippet to get size or text content of the component
+Use following js snippet to get size or text content of the component in the chrome dev tool
 
 `$$('table.nrgt .l').map(e=>e.innerText)`
 
