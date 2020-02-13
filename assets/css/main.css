@@ -555,7 +555,7 @@ body {
   font-size: 14px;
   line-height: 1.6;
   font-family: 'Open Sans' sans-serif;
-  color: #666;
+  color: #101113;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   width: 100%; }
@@ -604,6 +604,20 @@ h2, header nav a, header .kicker, footer .lockup a, .h_small_height #nav_small a
     background-size: 15px;
     background-color: #303e49;
     border-radius: 30px; } }
+
+a.back-to-top {
+  display: none;
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+  position: fixed;
+  z-index: 998;
+  right: 20px;
+  bottom: 20px;
+  background: url(../img/silhouette125.svg) no-repeat center;
+  background-size: 15px;
+  background-color: #303e49;
+  border-radius: 30px; }
 
 @media only screen and (min-width: 220px) {
   .arrow {
