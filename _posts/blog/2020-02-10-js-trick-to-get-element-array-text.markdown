@@ -5,7 +5,7 @@ date:   2020-02-10 23:15:00 +0530
 categories: blog
 ---
 
-Console `Javascript` comes in very handy while doing quick manipulation of HTML or extracting data from a web page we are testing. I am writing this listicle of tips and tricks I use get some assistance while testing web applications
+Console `Javascript` comes in very handy while doing quick manipulation of HTML or extracting data from a web page we are testing. I am writing this little trick I use get some assistance while testing web applications
 
 ##### Using JS to get text of multiple elements
 
