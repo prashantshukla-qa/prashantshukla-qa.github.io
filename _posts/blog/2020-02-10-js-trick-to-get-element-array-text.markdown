@@ -3,6 +3,9 @@ layout: post
 title:  "A JS trick to get element array count and text"
 date:   2020-02-10 23:15:00 +0530
 categories: blog
+description: A neat JS trick to count the array of elements satisfying a css selector. Usefull in cases where one wants to check text options in a dropdown for example.
+image: "/assets/header_main.png"  
+author: Prashant Shukla
 ---
 
 Console `Javascript` comes in very handy while doing quick manipulation of HTML or extracting data from a web page we are testing. I am writing this little trick I use get some assistance while testing web applications
