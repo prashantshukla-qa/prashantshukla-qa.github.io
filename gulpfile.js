@@ -1,9 +1,10 @@
-var gulp        = require('gulp');
+var gulp = require('gulp');
 var browserSync = require('browser-sync');
-var sass        = require('gulp-sass');
-var prefix      = require('gulp-autoprefixer');
-var cp          = require('child_process');
-var pug         = require('gulp-pug');
+var sass = require('gulp-sass');
+var prefix = require('gulp-autoprefixer');
+var cp = require('child_process');
+var pug = require('gulp-pug');
+var sass = require('gulp-sass');
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -18,7 +19,7 @@ var messages = {
 gulp.task('jekyll-build', function (done) {
     var jekyll = process.platform === "win32" ? "jekyll.bat" : "jekyll"
     browserSync.notify(messages.jekyllBuild);
-    return cp.spawn(jekyll, ['build'], {stdio: 'inherit'})
+    return cp.spawn(jekyll, ['build'], { stdio: 'inherit' })
         .on('close', done);
 });
 
@@ -28,25 +29,10 @@ gulp.task('jekyll-build', function (done) {
 /**
  * Rebuild Jekyll & do page reload
  */
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+//gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-rebuild', gulp.series('jekyll-build', function () {
     browserSync.reload();
-});
-
-
-
-
-/**
- * Wait for jekyll-build, then launch the Server
- */
-gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
-    browserSync({
-        server: {
-            baseDir: '_site'
-        },
-        notify: false
-    });
-});
-
+}));
 
 
 
@@ -61,18 +47,37 @@ gulp.task('sass', function () {
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
         .pipe(gulp.dest('_site/assets/css'))
-        .pipe(browserSync.reload({stream:true}))
+        .pipe(browserSync.reload({ stream: true }))
         .pipe(gulp.dest('assets/css'));
 });
+
+
+
+/**
+ * Wait for jekyll-build, then launch the Server
+ */
+// gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
+gulp.task('browser-sync', gulp.series('sass', 'jekyll-build', function () {
+    browserSync({
+        server: {
+            baseDir: '_site'
+        },
+        notify: false
+    });
+}));
+
+
+
+
 
 /*
 * Travis is trying to Gulp stuff
 */
 
-gulp.task('pug', function(){
-  return gulp.src('_pugfiles/*.pug')
-  .pipe(pug())
-  .pipe(gulp.dest('_includes'));
+gulp.task('pug', function () {
+    return gulp.src('_pugfiles/*.pug')
+        .pipe(pug())
+        .pipe(gulp.dest('_includes'));
 });
 
 
@@ -95,4 +100,4 @@ gulp.task('watch', function () {
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', gulp.series('browser-sync', 'watch'));
