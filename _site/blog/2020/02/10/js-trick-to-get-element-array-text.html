@@ -24,7 +24,7 @@
   <meta content="/blog/2020/02/10/js-trick-to-get-element-array-text.html" property="og:url">
   
   
-  <meta content="2020-02-10T23:15:00+05:30" property="article:published_time">
+  <meta content="2020-02-10T12:45:00-05:00" property="article:published_time">
   <meta content="/#about-me/" property="article:author">
   
   
@@ -49,7 +49,7 @@
   <h1 class="post-title">A JS trick to get element array count and text</h1>
 </div>
 <div class="post-header">
-  <p class="post-meta">February 10, 2020 — 23:15 • Prashant Shukla</p>
+  <p class="post-meta">February 10, 2020 — 12:45 • Prashant Shukla</p>
 </div>
 
 <div class="post-wrapper">
@@ -58,7 +58,7 @@
 
   <article class="post-content">
     <div class = "blurb-blog">
-    <p>Console <code class="highlighter-rouge">Javascript</code> comes in very handy while doing quick manipulation of HTML or extracting data from a web page we are testing. I am writing this little trick I use get some assistance while testing web applications</p>
+    <p>Console <code class="language-plaintext highlighter-rouge">Javascript</code> comes in very handy while doing quick manipulation of HTML or extracting data from a web page we are testing. I am writing this little trick I use get some assistance while testing web applications</p>
 
 <h5 id="using-js-to-get-text-of-multiple-elements">Using JS to get text of multiple elements</h5>
 
@@ -66,7 +66,7 @@
 
 <p>Use following js snippet to get size or text content of the component in the chrome dev tool</p>
 
-<p><code class="highlighter-rouge">$$('table.nrgt .l').map(e=&gt;e.innerText)</code></p>
+<p><code class="language-plaintext highlighter-rouge">$$('table.nrgt .l').map(e=&gt;e.innerText)</code></p>
 
 <p><a href="/assets/img/blog-images/google-table-result.png" data-lightbox="js-example-1">
     <img src="/assets/img/blog-images/google-table-result.png" alt="Example of element count on Google" style="width:40%" />
@@ -75,11 +75,11 @@
 <h5 id="explanation">Explanation</h5>
 
 <ul>
-  <li><code class="highlighter-rouge">$$</code> in console returns array of elements based on css provided
+  <li><code class="language-plaintext highlighter-rouge">$$</code> in console returns array of elements based on css provided
     <ul>
-      <li>e.g. <code class="highlighter-rouge">$$('table.nrgt')</code> returns all the elements with tag table and class nrgt</li>
-      <li><code class="highlighter-rouge">$x</code> returns elements with provided xpath</li>
-      <li>single <code class="highlighter-rouge">$</code> returns the first element satisfying the css selector criteria</li>
+      <li>e.g. <code class="language-plaintext highlighter-rouge">$$('table.nrgt')</code> returns all the elements with tag table and class nrgt</li>
+      <li><code class="language-plaintext highlighter-rouge">$x</code> returns elements with provided xpath</li>
+      <li>single <code class="language-plaintext highlighter-rouge">$</code> returns the first element satisfying the css selector criteria</li>
     </ul>
   </li>
 </ul>
