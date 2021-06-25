@@ -86,11 +86,11 @@ gulp.task('pug', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('assets/css/**', ['sass']);
-    gulp.watch('assets/js/**', ['jekyll-rebuild']);
-    gulp.watch(['index.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
-    gulp.watch('assets/js/**', ['jekyll-rebuild']);
-    gulp.watch('_pugfiles/*.pug', ['pug']);
+    gulp.watch('assets/css/**', gulp.series('sass'));
+    gulp.watch('assets/js/**', gulp.series('jekyll-rebuild'));
+    gulp.watch(['index.html', '_layouts/*.html', '_includes/*'], gulp.series('jekyll-rebuild'));
+    gulp.watch('assets/js/**', gulp.series('jekyll-rebuild'));
+    gulp.watch('_pugfiles/*.pug', gulp.series('pug'));
 });
 
 

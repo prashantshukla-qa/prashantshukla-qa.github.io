@@ -1,0 +1,26 @@
+I"î<p>Console <code class="language-plaintext highlighter-rouge">Javascript</code> comes in very handy while doing quick manipulation of HTML or extracting data from a web page we are testing. I am writing this little trick I use get some assistance while testing web applications</p>
+
+<h5 id="using-js-to-get-text-of-multiple-elements">Using JS to get text of multiple elements</h5>
+
+<p><em>Example: Getting count or text of gooogle home page result table</em></p>
+
+<p>Use following js snippet to get size or text content of the component in the chrome dev tool</p>
+
+<p><code class="language-plaintext highlighter-rouge">$$('table.nrgt .l').map(e=&gt;e.innerText)</code></p>
+
+<p><a href="/assets/img/blog-images/google-table-result.png" data-lightbox="js-example-1">
+    <img src="/assets/img/blog-images/google-table-result.png" alt="Example of element count on Google" style="width:40%" />
+<a></a></a></p>
+
+<h5 id="explanation">Explanation</h5>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$$</code> in console returns array of elements based on css provided
+    <ul>
+      <li>e.g. <code class="language-plaintext highlighter-rouge">$$('table.nrgt')</code> returns all the elements with tag table and class nrgt</li>
+      <li><code class="language-plaintext highlighter-rouge">$x</code> returns elements with provided xpath</li>
+      <li>single <code class="language-plaintext highlighter-rouge">$</code> returns the first element satisfying the css selector criteria</li>
+    </ul>
+  </li>
+</ul>
+:ET
