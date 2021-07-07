@@ -737,6 +737,10 @@ a.back-to-top {
     float: left;
     margin: auto;
   }
+
+  a.back-to-top {
+    display: none;
+  }
 }
 @media only screen and (min-width: 220px) {
   header {
@@ -855,6 +859,9 @@ footer .lockup::after {
   clear: both;
   content: "";
   display: table;
+}
+footer .lockup .content-wrap {
+  float: left;
 }
 footer .lockup .content-wrap .copyright {
   margin: 0;
