@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -7,12 +6,9 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,400italic);
 html {
-  font-family: sans-serif;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /**
@@ -54,10 +50,8 @@ audio,
 canvas,
 progress,
 video {
-  display: inline-block;
-  /* 1 */
-  vertical-align: baseline;
-  /* 2 */
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
 }
 
 /**
@@ -231,12 +225,9 @@ input,
 optgroup,
 select,
 textarea {
-  color: inherit;
-  /* 1 */
-  font: inherit;
-  /* 2 */
-  margin: 0;
-  /* 3 */
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
 }
 
 /**
@@ -268,10 +259,8 @@ button,
 html input[type=button],
 input[type=reset],
 input[type=submit] {
-  -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
 }
 
 /**
@@ -309,10 +298,8 @@ input {
 input[type=checkbox],
 input[type=radio] {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+          box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -331,10 +318,8 @@ input[type=number]::-webkit-outer-spin-button {
  *    (include `-moz` to future-proof).
  */
 input[type=search] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -webkit-box-sizing: content-box;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  -webkit-box-sizing: content-box; /* 2 */
   box-sizing: content-box;
 }
 
@@ -362,10 +347,8 @@ fieldset {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 legend {
-  border: 0;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -418,71 +401,71 @@ th {
 }
 
 .icon-twitter-square:before {
-  content: "";
+  content: "\f081";
 }
 
 .icon-facebook-square:before {
-  content: "";
+  content: "\f082";
 }
 
 .icon-linkedin-square:before {
-  content: "";
+  content: "\f08c";
 }
 
 .icon-linkedin:before {
-  content: "";
+  content: "\f0e1";
 }
 
 .icon-github-alt:before {
-  content: "";
+  content: "\f113";
 }
 
 .icon-youtube-square:before {
-  content: "";
+  content: "\f166";
 }
 
 .icon-youtube:before {
-  content: "";
+  content: "\f167";
 }
 
 .icon-dropbox:before {
-  content: "";
+  content: "\f16b";
 }
 
 .icon-stack-overflow:before {
-  content: "";
+  content: "\f16c";
 }
 
 .icon-instagram:before {
-  content: "";
+  content: "\f16d";
 }
 
 .icon-tumblr-square:before {
-  content: "";
+  content: "\f174";
 }
 
 .icon-google:before {
-  content: "";
+  content: "\f1a0";
 }
 
 .icon-reddit:before {
-  content: "";
+  content: "\f1a1";
 }
 
 .icon-reddit-square:before {
-  content: "";
+  content: "\f1a2";
 }
 
 .icon-stumbleupon-circle:before {
-  content: "";
+  content: "\f1a3";
 }
 
 .icon-stumbleupon:before {
-  content: "";
+  content: "\f1a4";
 }
 
 .icon-git-square:before {
-  content: "";
+  content: "\f1d2";
 }
 
 /*
@@ -513,39 +496,39 @@ th {
 }
 
 .flaticon-github:before {
-  content: "";
+  content: "\f100";
 }
 
 .flaticon-twitter:before {
-  content: "";
+  content: "\f101";
 }
 
 .flaticon-facebook:before {
-  content: "";
+  content: "\f102";
 }
 
 .flaticon-linkedin:before {
-  content: "";
+  content: "\f103";
 }
 
 .flaticon-youtube:before {
-  content: "";
+  content: "\f104";
 }
 
 .flaticon-terminal-windows:before {
-  content: "";
+  content: "\f105";
 }
 
 .flaticon-hosting:before {
-  content: "";
+  content: "\f106";
 }
 
 .flaticon-machine:before {
-  content: "";
+  content: "\f107";
 }
 
 .flaticon-brain:before {
-  content: "";
+  content: "\f108";
 }
 
 .gigantic, .huge, .large, .bigger, .big,
@@ -690,7 +673,6 @@ h2 {
     margin-bottom: 10px;
     z-index: 888;
   }
-
   a.back-to-top {
     display: none;
     width: 40px;
@@ -725,7 +707,6 @@ a.back-to-top {
   .arrow {
     display: none;
   }
-
   .logo {
     height: 90px;
     width: 90px;
@@ -737,7 +718,6 @@ a.back-to-top {
     float: left;
     margin: auto;
   }
-
   a.back-to-top {
     display: none;
   }
@@ -771,7 +751,7 @@ header nav a {
   }
 }
 header nav a:hover {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 header h1 {
   text-align: center;
@@ -803,9 +783,9 @@ header h1 {
   }
 }
 header h1 span {
+  border: #000000 solid 10px;
   display: inline-block;
   padding: 0.2em 0.5em;
-  border: #000000 solid 10px;
 }
 @media only screen and (min-width: 220px) {
   header h1 span {
@@ -875,7 +855,7 @@ footer .lockup a {
   margin-right: 30px;
 }
 footer .lockup a:hover {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 #footer-particles {
@@ -895,7 +875,6 @@ footer .lockup a:hover {
     width: 180px;
     display: -webkit-box;
     display: flex;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
@@ -919,7 +898,6 @@ footer .lockup a:hover {
     border-radius: 50%;
     -webkit-box-ordinal-group: 3;
     box-ordinal-group: 3;
-    -webkit-order: 3;
     -moz-order: 3;
     order: 3;
     -ms-flex-order: 3;
@@ -940,18 +918,13 @@ footer .lockup a:hover {
     width: 200px;
     border-radius: 50%;
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .flipper {
     -webkit-transition: 0.6s;
-    -o-transition: 0.6s;
     transition: 0.6s;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
     position: relative;
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .front, .about-lock .back {
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -959,39 +932,27 @@ footer .lockup a:hover {
     top: 0;
     left: 0;
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .front {
     z-index: 2;
     -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .back {
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .flaticon-terminal-windows {
     display: none;
     margin: auto;
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .flaticon-brain {
     display: none;
     margin: auto;
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .flaticon-machine {
     display: none;
     margin: auto;
   }
-}
-@media only screen and (min-width: 220px) {
   .about-lock .flaticon-hosting {
     display: none;
     margin: auto;
@@ -1002,14 +963,12 @@ footer .lockup a:hover {
     max-width: 680px;
     display: -webkit-box;
     display: flex;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
     margin: 0 auto;
     -webkit-box-align: center;
     box-align: center;
-    -webkit-align-items: center;
     -moz-align-items: center;
     -ms-align-items: center;
     -o-align-items: center;
@@ -1017,7 +976,6 @@ footer .lockup a:hover {
     -ms-flex-align: center;
     -webkit-box-pack: justify;
     box-pack: justify;
-    -webkit-justify-content: space-between;
     -moz-justify-content: space-between;
     -ms-justify-content: space-between;
     -o-justify-content: space-between;
@@ -1027,7 +985,6 @@ footer .lockup a:hover {
   .about-lock .flaticon-terminal-windows {
     -webkit-box-ordinal-group: 1;
     box-ordinal-group: 1;
-    -webkit-order: 1;
     -moz-order: 1;
     order: 1;
     -ms-flex-order: 1;
@@ -1036,7 +993,6 @@ footer .lockup a:hover {
   .about-lock .flaticon-brain {
     -webkit-box-ordinal-group: 2;
     box-ordinal-group: 2;
-    -webkit-order: 2;
     -moz-order: 2;
     order: 2;
     -ms-flex-order: 2;
@@ -1045,7 +1001,6 @@ footer .lockup a:hover {
   .about-lock .flaticon-machine {
     -webkit-box-ordinal-group: 4;
     box-ordinal-group: 4;
-    -webkit-order: 4;
     -moz-order: 4;
     order: 4;
     -ms-flex-order: 4;
@@ -1054,7 +1009,6 @@ footer .lockup a:hover {
   .about-lock .flaticon-hosting {
     -webkit-box-ordinal-group: 5;
     box-ordinal-group: 5;
-    -webkit-order: 5;
     -moz-order: 5;
     order: 5;
     -ms-flex-order: 5;
@@ -1071,7 +1025,6 @@ footer .lockup a:hover {
     line-height: 70px;
     color: #303e49;
     -webkit-transition: all 0.15s ease-out 0s;
-    -o-transition: all 0.15s ease-out 0s;
     transition: all 0.15s ease-out 0s;
     margin-left: 0;
   }
@@ -1104,13 +1057,11 @@ footer .lockup a:hover {
   margin: 0px auto 50px;
   display: -webkit-box;
   display: flex;
-  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: distribute;
   box-pack: distribute;
-  -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   -ms-justify-content: space-around;
   -o-justify-content: space-around;
@@ -1127,7 +1078,6 @@ footer .lockup a:hover {
   line-height: 70px;
   color: #303e49;
   -webkit-transition: all 0.15s ease-out 0s;
-  -o-transition: all 0.15s ease-out 0s;
   transition: all 0.15s ease-out 0s;
   margin-left: 0;
 }
@@ -1594,13 +1544,11 @@ form label span {
   max-width: 750px;
   display: -webkit-box;
   display: flex;
-  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   box-align: center;
-  -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
   -o-align-items: center;
@@ -1608,7 +1556,6 @@ form label span {
   -ms-flex-align: center;
   -webkit-box-pack: justify;
   box-pack: justify;
-  -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
@@ -1624,7 +1571,6 @@ form label span {
   background-color: green;
   -webkit-transition: -webkit-transform 0.2s;
   transition: -webkit-transform 0.2s;
-  -o-transition: transform 0.2s;
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
   width: 100%;
@@ -1643,14 +1589,12 @@ form label span {
     max-width: 270px;
     display: -webkit-box;
     display: flex;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
     margin: 10 auto;
     -webkit-box-align: center;
     box-align: center;
-    -webkit-align-items: center;
     -moz-align-items: center;
     -ms-align-items: center;
     -o-align-items: center;
@@ -1658,7 +1602,6 @@ form label span {
     -ms-flex-align: center;
     -webkit-box-pack: justify;
     box-pack: justify;
-    -webkit-justify-content: space-between;
     -moz-justify-content: space-between;
     -ms-justify-content: space-between;
     -o-justify-content: space-between;
@@ -1666,11 +1609,9 @@ form label span {
     -ms-flex-pack: justify;
     padding-left: 10px;
   }
-
   .title:hover {
     padding-left: 10px;
   }
-
   .post-title {
     font-size: 42px !important;
     letter-spacing: -1px;
@@ -1680,47 +1621,39 @@ form label span {
   .post-title:hover {
     padding-left: 10px;
   }
-
   .post-meta {
     margin-bottom: 0px;
     padding-bottom: 20px;
     padding-left: 10px;
   }
-
   .post-link {
     display: block;
     font-size: 40px;
   }
-
   .post-wrapper {
     max-width: 270px;
     margin: 0 auto;
     font-size: 22px;
   }
-
   .honeycombpic {
     width: 800px;
     height: 500px;
     margin-bottom: 30px;
     margin-top: 30px;
   }
-
   .honeycombpic img {
     width: 100%;
     height: 100%;
   }
-
   .comment {
     max-width: 290px;
     margin: 0 auto;
     padding-bottom: 100px;
   }
-
   .blurb-blog {
     font-size: 15px;
     font-weight: 30;
   }
-
   .honeycombpic {
     width: 270px;
     height: 190px;
@@ -1733,24 +1666,19 @@ form label span {
     max-width: 650px;
     margin: 0 auto;
   }
-
   .title:hover {
     max-width: 650px;
   }
-
   .post-wrapper {
     max-width: 650px;
   }
-
   .comment {
     max-width: 650px;
   }
-
   .blurb-blog {
     font-size: 22px;
     font-weight: 30;
   }
-
   .honeycombpic {
     width: 650px;
     height: 410px;
@@ -1763,24 +1691,19 @@ form label span {
     max-width: 750px;
     margin: 0 auto;
   }
-
   .title:hover {
     max-width: 750px;
   }
-
   .post-wrapper {
     max-width: 780px;
   }
-
   .comment {
     max-width: 780px;
   }
-
   .blurb-blog {
     font-size: 22px;
     font-weight: 30;
   }
-
   .honeycombpic {
     width: 750px;
     height: 500px;
@@ -1805,7 +1728,7 @@ form label span {
   color: rgba(0, 0, 0, 0.5);
 }
 .h_small_height #nav_small a:hover {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .h_small_height #h1_small {
   display: inline-block;
@@ -1857,7 +1780,6 @@ form label span {
   height: 100%;
   background: rgba(201, 144, 101, 0.9);
   -webkit-transition: all 0.15s ease-out 0s;
-  -o-transition: all 0.15s ease-out 0s;
   transition: all 0.15s ease-out 0s;
 }
 .thumb-container .thumb-unit:hover .thumb-overlay {

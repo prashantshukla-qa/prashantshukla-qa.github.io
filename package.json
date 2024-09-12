@@ -9,8 +9,8 @@
   "author": "Prashant Shukla",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.27.4",
-    "gulp": "^4.0.2",
+    "browser-sync": "^2.26.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.0.0",
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/prashantshukla-qa/prashantshukla-qa.github.io",
   "dependencies": {
-    "npm": "^7.19.1"
+    "jekyll": "^3.0.0-beta1",
+    "npm": "^10.8.3"
   }
 }

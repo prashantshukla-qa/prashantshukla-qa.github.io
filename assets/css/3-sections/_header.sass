@@ -78,13 +78,14 @@ header
     margin: 30px 30px 30px
 
     a
+      margin-left: 20px
+      color: rgba(0, 0, 0,0.5)
+      @extend %small-bold
       +MQ(S)
         display: none
       +MQ(M)
         display: inline-block
-      margin-left: 20px
-      color: rgba(0, 0, 0,0.5)
-      @extend %small-bold
+
 
 
       &:hover
@@ -115,6 +116,7 @@ header
         size: 72px
         weight: 700
     span
+      border: #000000 solid 10px//rgba(0, 0, 0,0.5) solid 10px
       display: inline-block
       padding: 0.2em 0.5em
       +MQ(S)
@@ -123,7 +125,6 @@ header
         padding: 0.1em 0.2em
       +MQ(L)
         padding: 0.2em 0.5em
-      border: #000000 solid 10px//rgba(0, 0, 0,0.5) solid 10px
 
   .kicker
     text-align: center
