@@ -48,7 +48,9 @@ gulp.task('jekyll-rebuild', gulp.series('jekyll-build', function (done) {
 gulp.task('sass', function () {
     return gulp.src('assets/css/main.scss')
         .pipe(sass({
-            includePaths: ['css']
+            includePaths: ['css'],
+            silenceDeprecations: ['import', 'global-builtin', 'if-function', 'color-functions', 'legacy-js-api'],
+            quietDeps: true
         }).on('error', sass.logError))
         .pipe(prefix({ overrideBrowserslist: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'], cascade: true }))
         .pipe(gulp.dest('_site/assets/css'))
