@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI for Educators — Workshop</title>
+
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+
+  <!-- We override the theme entirely with our greenboard look -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== GREENBOARD THEME ===== */
+    :root {
+      --board-green: #2d5a27;
+      --board-green-dark: #1e3d1a;
+      --chalk-white: #e8e4d9;
+      --chalk-yellow: #f5e6a3;
+      --chalk-pink: #f0b0b0;
+      --chalk-blue: #a3c9f5;
+      --chalk-orange: #f5c77e;
+    }
+
+    /* Classroom wall behind the board */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #d4c8a8;
+      background-image:
+        /* subtle wall texture */
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.015) 2px,
+          rgba(0,0,0,0.015) 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.01) 2px,
+          rgba(0,0,0,0.01) 4px
+        );
+    }
+
+    .reveal-viewport {
+      /* Inset the board from the wall */
+      margin: 28px auto !important;
+      max-width: calc(100vw - 56px);
+      max-height: calc(100vh - 56px);
+      width: calc(100vw - 56px) !important;
+      height: calc(100vh - 56px) !important;
+      border-radius: 4px;
+
+      /* Greenboard surface */
+      background:
+        /* chalk-dust smudges */
+        radial-gradient(ellipse at 15% 40%, rgba(255,255,255,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 25%, rgba(255,255,255,0.04) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 80%, rgba(255,255,255,0.03) 0%, transparent 50%),
+        /* board surface gradient */
+        linear-gradient(165deg, var(--board-green) 0%, var(--board-green-dark) 100%);
+
+      /* ---- WOODEN FRAME ---- */
+      border: 22px solid;
+      border-image: none;
+      border-color: #5c3d1e;
+      /* Bevel: lighter top-left, darker bottom-right for 3D depth */
+      border-top-color: #7a5530;
+      border-left-color: #6e4c28;
+      border-right-color: #4a2e14;
+      border-bottom-color: #3d250f;
+
+      /* Depth & shadow */
+      box-shadow:
+        /* inner shadow = board recessed into frame */
+        inset 0 0 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 4px rgba(0, 0, 0, 0.5),
+        /* outer shadow on the wall */
+        0 8px 30px rgba(0, 0, 0, 0.45),
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        /* subtle frame highlight on top edge */
+        0 -2px 0 #8b6337;
+
+      position: relative;
+    }
+
+    /* Chalk tray / ledge at bottom of the board */
+    .reveal-viewport::after {
+      content: "";
+      position: absolute;
+      bottom: -38px;
+      left: -8px;
+      right: -8px;
+      height: 16px;
+      background: linear-gradient(to bottom, #6e4c28 0%, #5c3d1e 40%, #4a2e14 100%);
+      border-radius: 0 0 4px 4px;
+      box-shadow:
+        0 4px 8px rgba(0,0,0,0.3),
+        inset 0 2px 3px rgba(255,255,255,0.1);
+      z-index: 100;
+    }
+
+    /* Wood-grain texture overlay on the frame via outline trick */
+    .reveal-viewport::before {
+      content: "";
+      position: absolute;
+      top: -22px;
+      left: -22px;
+      right: -22px;
+      bottom: -22px;
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 99;
+      background:
+        repeating-linear-gradient(
+          92deg,
+          transparent,
+          transparent 8px,
+          rgba(0,0,0,0.04) 8px,
+          rgba(0,0,0,0.04) 9px
+        );
+    }
+
+    .reveal {
+      font-family: 'Patrick Hand', 'Caveat', cursive;
+      color: var(--chalk-white);
+      font-size: 28px;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Caveat', cursive;
+      color: var(--chalk-yellow);
+      text-transform: none;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+      letter-spacing: 0.02em;
+    }
+    .reveal h1 { font-size: 2.2em; }
+    .reveal h2 { font-size: 1.6em; }
+    .reveal h3 { font-size: 1.25em; color: var(--chalk-orange); }
+
+    .reveal p, .reveal li {
+      line-height: 1.6;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .reveal ul { list-style: none; padding-left: 0; }
+    .reveal ul li::before {
+      content: "✦ ";
+      color: var(--chalk-yellow);
+      margin-right: 4px;
+    }
+    .reveal ul ul li::before {
+      content: "– ";
+      color: var(--chalk-blue);
+    }
+
+    .reveal strong { color: var(--chalk-yellow); }
+    .reveal em     { color: var(--chalk-pink); font-style: normal; }
+
+    .reveal blockquote {
+      background: rgba(0,0,0,0.2);
+      border-left: 5px solid var(--chalk-yellow);
+      padding: 15px 25px;
+      font-style: italic;
+      font-size: 0.95em;
+      border-radius: 4px;
+    }
+
+    .reveal code {
+      background: rgba(0,0,0,0.25);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Inter', monospace;
+      font-size: 0.85em;
+      color: var(--chalk-blue);
+    }
+
+    /* Comparison table */
+    .reveal table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      font-size: 0.78em;
+    }
+    .reveal table th {
+      background: rgba(0,0,0,0.35);
+      color: var(--chalk-yellow);
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .reveal table td {
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .reveal table tr:nth-child(even) { background: rgba(0,0,0,0.12); }
+
+    /* Custom utility classes */
+    .chalk-box {
+      background: rgba(0,0,0,0.18);
+      border: 2px dashed rgba(255,255,255,0.25);
+      border-radius: 10px;
+      padding: 20px 28px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .two-col {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .two-col > div { flex: 1; }
+
+    .emoji-icon { font-size: 1.4em; margin-right: 6px; }
+
+    .badge {
+      display: inline-block;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--chalk-yellow);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin: 3px;
+      font-size: 0.8em;
+    }
+
+    .slide-number { color: var(--chalk-yellow) !important; }
+    .reveal .controls button { color: var(--chalk-yellow) !important; }
+    .reveal .progress span { background: var(--chalk-yellow) !important; }
+
+    /* Doodle divider */
+    .chalk-divider {
+      border: none;
+      border-top: 2px dashed rgba(255,255,255,0.2);
+      margin: 18px 0;
+    }
+
+    /* Arrow for prompt transformation */
+    .arrow { color: var(--chalk-yellow); font-size: 1.6em; margin: 0 8px; }
+
+    .small { font-size: 0.75em; opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ==================== SLIDE 1: TITLE ==================== -->
+      <section>
+        <h1>🍎 AI for Educators</h1>
+        <h3>Practical AI for Teaching, Assessment &amp; School Productivity</h3>
+        <hr class="chalk-divider" />
+        <p class="small">90-Minute Interactive Workshop</p>
+        <p class="small" style="opacity:0.6;">Use <kbd style="background:rgba(0,0,0,0.3);padding:2px 8px;border-radius:4px;">→</kbd> arrow keys or swipe to navigate</p>
+      </section>
+
+      <!-- ==================== SLIDE 2: OBJECTIVES ==================== -->
+      <section>
+        <h2>📋 Session Objectives</h2>
+        <p>By the end of this session, you will:</p>
+        <ul>
+          <li>Understand what <strong>AI, Generative AI &amp; LLMs</strong> are</li>
+          <li>Know the <strong>major AI tools</strong> available today</li>
+          <li>Learn how to write <strong>effective prompts</strong></li>
+          <li>Use AI to create <strong>lesson plans, assignments &amp; assessments</strong></li>
+          <li>Understand <strong>AI limitations &amp; risks</strong></li>
+          <li>Identify &amp; address <strong>AI-assisted student work</strong></li>
+          <li>Develop <strong>school-appropriate AI usage guidelines</strong></li>
+        </ul>
+      </section>
+
+      <!-- ==================== SECTION 1: WELCOME ==================== -->
+      <section>
+        <section>
+          <h2>1️⃣ AI in Education Today</h2>
+          <p style="font-size:1.1em;">What is happening in AI — and why every educator should care</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 10 minutes</p>
+        </section>
+
+        <section>
+          <h2>Why Should Teachers Care?</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>🌍 The Reality</h3>
+              <ul>
+                <li>AI is already in students' hands</li>
+                <li>Education systems are evolving rapidly</li>
+                <li>New curricula are integrating AI literacy</li>
+                <li>Parents are asking questions</li>
+              </ul>
+            </div>
+            <div class="chalk-box">
+              <h3>🧩 The Opportunity</h3>
+              <ul>
+                <li>Save hours on lesson planning</li>
+                <li>Personalise learning at scale</li>
+                <li>Generate creative assessments instantly</li>
+                <li>Focus more on teaching, less on admin</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Myths vs Reality</h2>
+          <table>
+            <thead>
+              <tr><th>Myth 🚫</th><th>Reality ✅</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>AI will replace teachers</td><td>AI is a tool — teachers provide empathy, context &amp; mentorship</td></tr>
+              <tr><td>AI is always correct</td><td>AI frequently "hallucinates" — makes confident mistakes</td></tr>
+              <tr><td>Only tech-savvy people can use AI</td><td>Modern AI tools are designed for everyone</td></tr>
+              <tr><td>AI is just a fad</td><td>AI is a fundamental shift, like the internet</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>💬 Quick Discussion</h2>
+          <div class="chalk-box" style="text-align:center;">
+            <p style="font-size:1.15em;">How many of you have already used an AI tool?</p>
+            <p style="font-size:1.15em;">What concerns you most about AI in education?</p>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 2: INTRO TO AI ==================== -->
+      <section>
+        <section>
+          <h2>2️⃣ Understanding AI, Gen AI &amp; LLMs</h2>
+          <p>From traditional AI to the tools you use today</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 10 minutes</p>
+        </section>
+
+        <section>
+          <h2>The AI Family Tree</h2>
+          <div class="chalk-box" style="text-align:center;">
+            <p><span class="badge">🤖 Artificial Intelligence</span></p>
+            <p>↓</p>
+            <p><span class="badge">🧠 Machine Learning</span></p>
+            <p>↓</p>
+            <p><span class="badge">🔬 Deep Learning</span></p>
+            <p>↓</p>
+            <p><span class="badge">✨ Generative AI</span></p>
+            <p>↓</p>
+            <p><span class="badge">💬 Large Language Models (LLMs)</span></p>
+          </div>
+        </section>
+
+        <section>
+          <h2>What is Generative AI?</h2>
+          <p>AI that <em>creates new content</em> — not just classifies or predicts.</p>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>📝 Text</h3>
+              <p>Essays, lesson plans, emails, quiz questions</p>
+            </div>
+            <div class="chalk-box">
+              <h3>🖼️ Images</h3>
+              <p>Illustrations, diagrams, visual aids</p>
+            </div>
+          </div>
+          <div class="two-col" style="margin-top:10px;">
+            <div class="chalk-box">
+              <h3>🎵 Audio</h3>
+              <p>Narration, music, language pronunciation</p>
+            </div>
+            <div class="chalk-box">
+              <h3>🎬 Video</h3>
+              <p>Explainer videos, animated content</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>How Do LLMs Work?</h2>
+          <blockquote>
+            "LLMs are like highly knowledgeable autocomplete systems trained on enormous amounts of text."
+          </blockquote>
+          <ul>
+            <li>They predict the <strong>next most likely word</strong></li>
+            <li>Trained on billions of web pages, books &amp; articles</li>
+            <li>They don't "understand" — they <strong>pattern-match</strong></li>
+            <li>This is why they can be confidently <em>wrong</em></li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 3: AI TOOLS ==================== -->
+      <section>
+        <section>
+          <h2>3️⃣ AI Tools Landscape</h2>
+          <p>Which tool is best for what?</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 10 minutes</p>
+        </section>
+
+        <section>
+          <h2>Major AI Tools</h2>
+          <table>
+            <thead>
+              <tr><th>Tool</th><th>By</th><th>Best For</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>🟦 <strong>Copilot</strong></td><td>Microsoft</td><td>Office integration, Word, Excel, PPT</td></tr>
+              <tr><td>🟢 <strong>ChatGPT</strong></td><td>OpenAI</td><td>Content creation, brainstorming, tutoring</td></tr>
+              <tr><td>🔵 <strong>Gemini</strong></td><td>Google</td><td>Google Workspace, research</td></tr>
+              <tr><td>🟠 <strong>Claude</strong></td><td>Anthropic</td><td>Long documents, detailed reasoning</td></tr>
+              <tr><td>🟣 <strong>Perplexity</strong></td><td>Perplexity AI</td><td>Research with cited sources</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Comparison at a Glance</h2>
+          <table>
+            <thead>
+              <tr><th>Parameter</th><th>Copilot</th><th>ChatGPT</th><th>Gemini</th><th>Claude</th><th>Perplexity</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Accuracy</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+              <tr><td>Creativity</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+              <tr><td>Research</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+              <tr><td>Free Tier</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+              <tr><td>Education Friendly</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+            </tbody>
+          </table>
+          <p class="small">💡 <strong>Tip:</strong> Try the same prompt on 2–3 tools and compare results!</p>
+        </section>
+
+        <section>
+          <h2>🆕 Bonus: Other Useful AI Tools</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>For Teachers</h3>
+              <ul>
+                <li><strong>Canva AI</strong> — Design worksheets &amp; posters</li>
+                <li><strong>Gamma.app</strong> — AI presentations</li>
+                <li><strong>NotebookLM</strong> — Research &amp; summarise documents</li>
+                <li><strong>Quillbot</strong> — Paraphrase &amp; grammar</li>
+              </ul>
+            </div>
+            <div class="chalk-box">
+              <h3>For Classrooms</h3>
+              <ul>
+                <li><strong>Diffit</strong> — Differentiated reading</li>
+                <li><strong>Curipod</strong> — Interactive AI lessons</li>
+                <li><strong>SchoolAI</strong> — Safe student AI spaces</li>
+                <li><strong>MagicSchool.ai</strong> — 60+ teacher AI tools</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 4: TERMINOLOGY ==================== -->
+      <section>
+        <section>
+          <h2>4️⃣ AI Terminology — Simplified</h2>
+          <p>Words every teacher should know</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 10 minutes</p>
+        </section>
+
+        <section>
+          <h2>Key Vocabulary</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <p><strong>Prompt</strong> — The instruction you give to AI</p>
+              <p><strong>Context</strong> — Background info you provide</p>
+              <p><strong>Context Window</strong> — How much AI can "remember" in a chat</p>
+              <p><strong>Tokens</strong> — Small chunks of words AI processes</p>
+            </div>
+            <div class="chalk-box">
+              <p><strong>Hallucination</strong> — AI confidently giving wrong info</p>
+              <p><strong>Temperature</strong> — Controls creativity vs accuracy</p>
+              <p><strong>RAG</strong> — AI using trusted docs before answering</p>
+              <p><strong>Token Billing</strong> — Why some tools charge by usage</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Real-World Example</h2>
+          <div class="chalk-box">
+            <h3>Context in Action</h3>
+            <blockquote>
+              "I teach <strong>Grade 8 Science</strong> in <strong>CBSE</strong>. Create a worksheet on <strong>photosynthesis</strong> with diagrams and fill-in-the-blanks."
+            </blockquote>
+            <p>↑ This prompt has: <span class="badge">Role</span> <span class="badge">Context</span> <span class="badge">Task</span> <span class="badge">Format</span></p>
+          </div>
+          <p>The <strong>more context</strong> you provide, the <strong>better</strong> the output.</p>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 5: PROMPT ENGINEERING ==================== -->
+      <section>
+        <section>
+          <h2>5️⃣ Prompt Engineering for Teachers</h2>
+          <p>The #1 skill that makes AI useful</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 15 minutes</p>
+        </section>
+
+        <section>
+          <h2>Bad Prompt vs Good Prompt</h2>
+          <div class="chalk-box" style="border-color: var(--chalk-pink);">
+            <h3 style="color:var(--chalk-pink);">❌ Bad Prompt</h3>
+            <blockquote>"Create a lesson plan on fractions."</blockquote>
+          </div>
+          <div class="chalk-box" style="border-color: #90ee90;">
+            <h3 style="color:#90ee90;">✅ Good Prompt</h3>
+            <blockquote>"Create a <strong>Grade 5 CBSE</strong> mathematics lesson plan on <strong>fractions</strong>. Include <strong>learning objectives</strong>, classroom activities, group exercises, assessment questions, and <strong>differentiation for advanced learners</strong>."</blockquote>
+          </div>
+        </section>
+
+        <section>
+          <h2>The R-C-T-F Framework</h2>
+          <div class="chalk-box" style="text-align:center;font-size:1.1em;">
+            <p><span class="badge">🎭 R — Role</span> Who should AI act as?</p>
+            <p><span class="badge">📚 C — Context</span> Teaching environment, board, grade</p>
+            <p><span class="badge">📝 T — Task</span> What needs to be done?</p>
+            <p><span class="badge">📄 F — Format</span> How should the output look?</p>
+          </div>
+          <hr class="chalk-divider" />
+          <p><strong>Remember:</strong> <em>R-C-T-F</em> = Better prompts = Better outputs</p>
+        </section>
+
+        <section>
+          <h2>Prompt Upgrade Example</h2>
+          <div class="chalk-box">
+            <p><em>"Make a quiz"</em></p>
+            <p class="arrow">⬇️</p>
+            <p><em>"Make a quiz on gravity for Class 9"</em></p>
+            <p class="arrow">⬇️</p>
+            <p><strong>"You are an experienced CBSE physics teacher. Create a 15-question quiz on gravity for Class 9 students. Include 5 MCQs, 5 short-answer, and 5 HOTS questions. Provide an answer key with marking scheme. Format as a printable worksheet."</strong></p>
+          </div>
+        </section>
+
+        <section>
+          <h2>💡 Advanced Prompting Tips</h2>
+          <ul>
+            <li><strong>Chain of thought</strong> — Ask AI to "think step by step"</li>
+            <li><strong>Few-shot examples</strong> — Show AI what you want with examples</li>
+            <li><strong>Iterate</strong> — Refine: "Make it simpler" / "Add more detail"</li>
+            <li><strong>Specify constraints</strong> — "Use only 200 words" / "Bloom's Taxonomy Level 4"</li>
+            <li><strong>Assign a persona</strong> — "Act as a child psychologist" / "You are a curriculum designer"</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 6: PRACTICAL USE CASES ==================== -->
+      <section>
+        <section>
+          <h2>6️⃣ Practical Use Cases for Teachers</h2>
+          <p>Where AI can save you hours every week</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 15 minutes</p>
+        </section>
+
+        <section>
+          <h2>📚 Lesson Planning &amp; Content</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>Lesson Planning</h3>
+              <ul>
+                <li>Annual curriculum plans</li>
+                <li>Weekly lesson plans</li>
+                <li>Aligned learning objectives</li>
+                <li>Cross-curricular integration</li>
+              </ul>
+            </div>
+            <div class="chalk-box">
+              <h3>Content Creation</h3>
+              <ul>
+                <li>Class notes &amp; summaries</li>
+                <li>Worksheets &amp; handouts</li>
+                <li>Practice papers</li>
+                <li>Study guides &amp; revision material</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>📝 Assessment Design</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>Question Types</h3>
+              <ul>
+                <li>MCQs (with distractors!)</li>
+                <li>HOTS &amp; application-based questions</li>
+                <li>Case studies &amp; scenarios</li>
+                <li>Bloom's taxonomy-aligned questions</li>
+              </ul>
+            </div>
+            <div class="chalk-box">
+              <h3>Evaluation Tools</h3>
+              <ul>
+                <li>Rubrics with descriptors</li>
+                <li>Marking schemes</li>
+                <li>Self-assessment checklists</li>
+                <li>Peer review templates</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🎯 Project-Based &amp; Personalised Learning</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>Projects</h3>
+              <ul>
+                <li>Creative project ideas by subject</li>
+                <li>Evaluation criteria</li>
+                <li>Student instruction sheets</li>
+                <li>Timeline &amp; milestone planners</li>
+              </ul>
+            </div>
+            <div class="chalk-box">
+              <h3>Differentiation</h3>
+              <ul>
+                <li>Multiple difficulty levels</li>
+                <li>Remedial exercises</li>
+                <li>Enrichment activities</li>
+                <li>IEP-friendly adaptations</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>✉️ Communication &amp; Admin</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>Parent Communication</h3>
+              <ul>
+                <li>Professional emails</li>
+                <li>PTM summaries</li>
+                <li>Progress report narratives</li>
+                <li>Behaviour observation notes</li>
+              </ul>
+            </div>
+            <div class="chalk-box">
+              <h3>Admin Tasks</h3>
+              <ul>
+                <li>Meeting minutes</li>
+                <li>Circulars &amp; notices</li>
+                <li>Event planning checklists</li>
+                <li>Report formatting</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🧪 Sample Prompts to Try Right Now</h2>
+          <div class="chalk-box" style="font-size:0.88em;">
+            <p>📘 <em>"Create a 5E lesson plan for teaching photosynthesis to Grade 7 CBSE students."</em></p>
+            <hr class="chalk-divider" />
+            <p>📝 <em>"Generate 10 HOTS questions on the French Revolution for Class 9 History."</em></p>
+            <hr class="chalk-divider" />
+            <p>📊 <em>"Create a rubric for evaluating a Grade 10 English persuasive essay, with 4 levels."</em></p>
+            <hr class="chalk-divider" />
+            <p>✉️ <em>"Write a professional email to parents about an upcoming science exhibition."</em></p>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 7: HANDS-ON ==================== -->
+      <section>
+        <section>
+          <h2>7️⃣ Hands-On Workshop</h2>
+          <p>Your turn to practice! 🎉</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 10 minutes</p>
+        </section>
+
+        <section>
+          <h2>Activity 1 — Create with AI</h2>
+          <div class="chalk-box">
+            <p>Choose <strong>one</strong> and create it using any AI tool:</p>
+            <ul>
+              <li>An <strong>assignment</strong> for your subject</li>
+              <li>A <strong>worksheet</strong> with varied question types</li>
+              <li>A <strong>project brief</strong> with evaluation criteria</li>
+            </ul>
+            <p class="small">💡 Use the R-C-T-F framework!</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Activity 2 — Prompt Makeover</h2>
+          <div class="chalk-box" style="text-align:center;">
+            <p>Take this weak prompt and improve it:</p>
+            <p style="font-size:1.2em;">
+              <span style="color:var(--chalk-pink);">"Make a test"</span>
+              <span class="arrow">→</span>
+              <span style="color:var(--chalk-orange);">Better</span>
+              <span class="arrow">→</span>
+              <span style="color:#90ee90;">Best! ✨</span>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Activity 3 — Compare AI Tools</h2>
+          <div class="chalk-box">
+            <p>Use the <strong>same prompt</strong> on all three tools and compare:</p>
+            <div class="two-col" style="text-align:center;margin-top:15px;">
+              <div><span class="badge">🟦 Copilot</span></div>
+              <div><span class="badge">🟢 ChatGPT</span></div>
+              <div><span class="badge">🔵 Gemini</span></div>
+            </div>
+            <p style="margin-top:15px;">Notice differences in: <em>detail, accuracy, formatting, creativity</em></p>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 8: RISKS ==================== -->
+      <section>
+        <section>
+          <h2>8️⃣ Risks, Limitations &amp; Responsible AI</h2>
+          <p>What every educator must know</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 5 minutes</p>
+        </section>
+
+        <section>
+          <h2>⚠️ Key Risks</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3>🎭 Hallucinations</h3>
+              <p>AI can invent facts, quotes, citations, and even research papers that don't exist.</p>
+              <p><strong>Always verify!</strong></p>
+            </div>
+            <div class="chalk-box">
+              <h3>⚖️ Bias</h3>
+              <p>AI inherits biases from its training data — cultural, gender, and socioeconomic biases can appear.</p>
+              <p><strong>Review critically!</strong></p>
+            </div>
+          </div>
+          <div class="two-col" style="margin-top:10px;">
+            <div class="chalk-box">
+              <h3>🔒 Privacy</h3>
+              <p>Never share student names, marks, personal data, or school-sensitive info with public AI tools.</p>
+            </div>
+            <div class="chalk-box">
+              <h3>©️ Copyright</h3>
+              <p>AI-generated content may resemble copyrighted material. Use it as a <em>starting point</em>, not the final product.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>🛡️ Golden Rules for Safe AI Use</h2>
+          <div class="chalk-box" style="font-size:1.05em;">
+            <ul>
+              <li>AI is your <strong>assistant</strong>, not your replacement</li>
+              <li><strong>Always verify</strong> facts and information</li>
+              <li><strong>Never share</strong> personal or sensitive student data</li>
+              <li><strong>Review &amp; edit</strong> every AI output before using it</li>
+              <li>Understand your school's <strong>data privacy policy</strong></li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 9: STUDENT USAGE ==================== -->
+      <section>
+        <section>
+          <h2>9️⃣ Students &amp; AI</h2>
+          <p>Opportunities, challenges &amp; what teachers can do</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 10 minutes</p>
+        </section>
+
+        <section>
+          <h2>Benefits for Students</h2>
+          <div class="chalk-box">
+            <ul>
+              <li><span class="emoji-icon">🎓</span> <strong>Personalised tutoring</strong> — AI explains at the student's pace</li>
+              <li><span class="emoji-icon">🔍</span> <strong>Faster research</strong> — Quick summaries and explanations</li>
+              <li><span class="emoji-icon">🌐</span> <strong>Language support</strong> — Translation and simplification</li>
+              <li><span class="emoji-icon">💡</span> <strong>Better explanations</strong> — "Explain like I'm 10 years old"</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Challenges &amp; Concerns</h2>
+          <div class="chalk-box" style="border-color: var(--chalk-pink);">
+            <ul>
+              <li><span class="emoji-icon">📋</span> <strong>Homework outsourcing</strong> — Students submitting AI work as their own</li>
+              <li><span class="emoji-icon">🧠</span> <strong>Reduced critical thinking</strong> — Over-reliance on AI answers</li>
+              <li><span class="emoji-icon">📄</span> <strong>Plagiarism</strong> — Difficult to detect AI-written text</li>
+              <li><span class="emoji-icon">🔗</span> <strong>Overdependence</strong> — Students unable to work without AI</li>
+            </ul>
+          </div>
+          <p class="small" style="color:var(--chalk-pink);">⚠️ No AI detection tool is 100% accurate!</p>
+        </section>
+
+        <section>
+          <h2>✅ Better Approaches</h2>
+          <p>Instead of trying to <em>catch</em> AI use, <strong>redesign assessments</strong>:</p>
+          <div class="chalk-box">
+            <ul>
+              <li><strong>Process-based assessment</strong> — Evaluate drafts, not just finals</li>
+              <li><strong>Oral defence / viva</strong> — Ask students to explain their work</li>
+              <li><strong>In-class writing</strong> — Supervised, no-device assessments</li>
+              <li><strong>Project journals</strong> — Document the learning journey</li>
+              <li><strong>Application-based questions</strong> — Require real-world context</li>
+              <li><strong>Collaborative work</strong> — Peer discussions that AI can't replicate</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== SECTION 10: POLICY ==================== -->
+      <section>
+        <section>
+          <h2>🔟 AI Policy for Schools</h2>
+          <p>Building a responsible framework</p>
+          <hr class="chalk-divider" />
+          <p class="small">⏱️ 5 minutes</p>
+        </section>
+
+        <section>
+          <h2>Suggested Guidelines</h2>
+          <div class="chalk-box">
+            <h3 style="color:#90ee90;">✅ Teachers Should</h3>
+            <ul>
+              <li>Use AI for lesson preparation &amp; productivity</li>
+              <li>Always verify AI outputs before classroom use</li>
+              <li>Use AI as an <em>assistant</em>, not a replacement</li>
+              <li>Stay updated on new tools &amp; best practices</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Student Guidelines</h2>
+          <div class="two-col">
+            <div class="chalk-box">
+              <h3 style="color:#90ee90;">✅ Students May</h3>
+              <ul>
+                <li>Use AI for brainstorming &amp; idea generation</li>
+                <li>Use AI as a study tutor</li>
+                <li>Cite AI assistance when required</li>
+                <li>Use AI for language support</li>
+              </ul>
+            </div>
+            <div class="chalk-box" style="border-color:var(--chalk-pink);">
+              <h3 style="color:var(--chalk-pink);">🚫 Students Should Not</h3>
+              <ul>
+                <li>Submit AI-generated work as their own</li>
+                <li>Use AI during restricted assessments</li>
+                <li>Share personal data with AI tools</li>
+                <li>Rely on AI without verification</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== BONUS: GETTING STARTED ==================== -->
+      <section>
+        <h2>🚀 Your AI Starter Kit</h2>
+        <div class="chalk-box" style="font-size:0.92em;">
+          <p><strong>Week 1:</strong> Try one AI tool — ask it to create a lesson plan</p>
+          <p><strong>Week 2:</strong> Use R-C-T-F to write better prompts</p>
+          <p><strong>Week 3:</strong> Generate a quiz or worksheet for your class</p>
+          <p><strong>Week 4:</strong> Compare outputs from 2+ tools</p>
+          <p><strong>Ongoing:</strong> Share tips with colleagues &amp; build a prompt library</p>
+        </div>
+        <p class="small">🌱 Small steps lead to big transformations!</p>
+      </section>
+
+      <!-- ==================== TAKEAWAYS ==================== -->
+      <section>
+        <h2>📦 Takeaway Resources</h2>
+        <div class="chalk-box">
+          <ul>
+            <li>📝 Top 20 educational prompts</li>
+            <li>📊 AI tool comparison sheet</li>
+            <li>🔧 Prompt engineering cheat sheet</li>
+            <li>📋 School AI usage guideline template</li>
+            <li>📄 Classroom AI policy template</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ==================== CLOSING ==================== -->
+      <section>
+        <h2>🌟 Closing Thought</h2>
+        <blockquote style="font-size:1.05em;">
+          "AI will not replace teachers. However, teachers who effectively leverage AI are likely to become significantly more productive, creative, and impactful than those who do not.<br/><br/>
+          The goal is not to compete with AI, but to learn how to teach effectively in an AI-enabled world."
+        </blockquote>
+        <hr class="chalk-divider" />
+        <h3>Thank You! 🍎</h3>
+        <p>Questions? Let's discuss!</p>
+      </section>
+
+    </div><!-- /slides -->
+  </div><!-- /reveal -->
+
+  <!-- Reveal.js -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      width: 1280,
+      height: 720,
+      margin: 0.08,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      center: true,
+      // Keyboard shortcuts
+      keyboard: true,
+      // Touch navigation
+      touch: true,
+      // Loop the presentation
+      loop: false,
+      // Vertical centering of slides
+      center: true,
+    });
+  </script>
+</body>
+</html>

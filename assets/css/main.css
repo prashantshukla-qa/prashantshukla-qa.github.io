@@ -595,19 +595,19 @@ a {
 }
 
 a:hover, a:focus {
-  color: #587287;
+  color: rgb(34.6912980068%, 44.8095932588%, 52.7596823854%);
 }
 
 ::-moz-selection {
-  color: #587287;
+  color: rgb(34.6912980068%, 44.8095932588%, 52.7596823854%);
 }
 
 ::selection {
-  color: #587287;
+  color: rgb(34.6912980068%, 44.8095932588%, 52.7596823854%);
 }
 
 ::-moz-selection {
-  color: #587287;
+  color: rgb(34.6912980068%, 44.8095932588%, 52.7596823854%);
 }
 
 img::-moz-selection {
@@ -893,6 +893,12 @@ footer .lockup a:hover {
   .about-lock .flip-container {
     -webkit-perspective: 1000;
             perspective: 1000;
+  }
+  .about-lock .flip-container:hover .flipper, .about-lock .flip-container.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  .about-lock .flip-container {
     height: 200px;
     width: 200px;
     border-radius: 50%;
@@ -901,10 +907,6 @@ footer .lockup a:hover {
     -moz-order: 3;
     order: 3;
     -ms-flex-order: 3;
-  }
-  .about-lock .flip-container:hover .flipper, .about-lock .flip-container.hover .flipper {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
   }
 }
 @media only screen and (min-width: 220px) and (min-width: 220px) {
@@ -1037,8 +1039,8 @@ footer .lockup a:hover {
 .blurb {
   background-color: #ffffff;
   border-radius: 0.25em;
-  -webkit-box-shadow: 0 3px 0 #d6dee4;
-          box-shadow: 0 3px 0 #d6dee4;
+  -webkit-box-shadow: 0 3px 0 rgb(83.7574099407%, 86.8809849521%, 89.3798449612%);
+          box-shadow: 0 3px 0 rgb(83.7574099407%, 86.8809849521%, 89.3798449612%);
   max-width: 750px;
   padding: 0 15px;
   margin: 50px auto;
@@ -1302,8 +1304,8 @@ footer .lockup a:hover {
   background: #ffffff;
   border-radius: 0.25em;
   padding: 1em;
-  -webkit-box-shadow: 0 3px 0 #d6dee4;
-          box-shadow: 0 3px 0 #d6dee4;
+  -webkit-box-shadow: 0 3px 0 rgb(83.7574099407%, 86.8809849521%, 89.3798449612%);
+          box-shadow: 0 3px 0 rgb(83.7574099407%, 86.8809849521%, 89.3798449612%);
 }
 .cd-timeline-content::after {
   clear: both;
@@ -1334,7 +1336,7 @@ footer .lockup a:hover {
   border-radius: 0.25em;
 }
 .no-touch .cd-timeline-content .cd-read-more:hover {
-  background-color: #bac4cb;
+  background-color: rgb(73.135911899%, 76.6962127317%, 79.6091861402%);
 }
 .cd-timeline-content .cd-date {
   float: left;
@@ -1502,7 +1504,7 @@ form input, form textarea {
 }
 form input:focus, form textarea:focus {
   outline: none;
-  border-color: #aebeca;
+  border-color: rgb(68.296872468%, 74.3769243234%, 79.1541079242%);
 }
 form .submit-wrap {
   text-align: right;
@@ -1516,8 +1518,8 @@ form [type=submit] {
   width: 33%;
 }
 form [type=submit]:hover {
-  background: #587287;
-  border-color: #587287;
+  background: rgb(34.6912980068%, 44.8095932588%, 52.7596823854%);
+  border-color: rgb(34.6912980068%, 44.8095932588%, 52.7596823854%);
 }
 form textarea {
   height: 10em;
