@@ -4,12 +4,14 @@
   "description": "My starter project including full setup for Jekyll, GulpJS, SASS & BrowserSync",
   "main": "gulpfile.js",
   "scripts": {
+    "start": "gulp",
+    "build": "gulp default",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Prashant Shukla",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.2",
+    "browser-sync": "^3.0.4",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-pug": "^5.0.0",
@@ -30,9 +32,15 @@
   "bugs": {
     "url": "https://github.com/prashantshukla-qa/prashantshukla-qa.github.io"
   },
-  "homepage": "https://github.com/prashantshukla-qa/prashantshukla-qa.github.io",
+  "overrides": {
+    "browser-sync": {
+      "immutable": "^4.3.9"
+    },
+    "browser-sync-ui": {
+      "immutable": "^4.3.9"
+    }
+  },
   "dependencies": {
-    "jekyll": "^3.0.0-beta1",
-    "npm": "^10.8.3"
+    "jekyll": "^3.0.0-beta1"
   }
 }
