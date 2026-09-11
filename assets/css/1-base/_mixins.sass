@@ -12,3 +12,57 @@
 
 =border-radius($radius: 0.25em)
   border-radius: $radius
+
+// Flexbox & CSS3 mixins (removed in Bourbon 5+)
+=display($val)
+  display: $val
+
+=order($val)
+  order: $val
+
+=align-items($val)
+  align-items: $val
+
+=justify-content($val)
+  justify-content: $val
+
+=flex-direction($val)
+  flex-direction: $val
+
+=flex-wrap($val)
+  flex-wrap: $val
+
+=flex-flow($val...)
+  flex-flow: $val
+
+=align-self($val)
+  align-self: $val
+
+=align-content($val)
+  align-content: $val
+
+=flex-grow($val)
+  flex-grow: $val
+
+=flex-shrink($val)
+  flex-shrink: $val
+
+=flex-basis($val)
+  flex-basis: $val
+
+=transform($val...)
+  transform: $val
+
+=transition($properties...)
+  @if length($properties) == 0
+    transition: all 0.2s ease-in-out
+  @else
+    transition: $properties
+
+=animation($val...)
+  animation: $val
+
+=keyframes($name)
+  @keyframes #{$name}
+    @content
+

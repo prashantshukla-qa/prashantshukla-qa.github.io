@@ -4,6 +4,7 @@ var sass = require('gulp-sass')(require('sass'));
 var prefix = require('gulp-autoprefixer');
 var cp = require('child_process');
 var pug = require('gulp-pug');
+const path = require('path');
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -48,7 +49,9 @@ gulp.task('jekyll-rebuild', gulp.series('jekyll-build', function (done) {
 gulp.task('sass', function () {
     return gulp.src('assets/css/main.scss')
         .pipe(sass({
-            includePaths: ['css']
+            includePaths: [ path.join(__dirname, 'assets', 'css', '0-tools'), path.join(__dirname, 'assets', 'css', '1-base'), path.join(__dirname, 'assets', 'css', '3-sections') ],
+            silenceDeprecations: ['import', 'global-builtin', 'if-function', 'color-functions', 'legacy-js-api'],
+            quietDeps: true
         }).on('error', sass.logError))
         .pipe(prefix({ overrideBrowserslist: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'], cascade: true }))
         .pipe(gulp.dest('_site/assets/css'))
@@ -91,10 +94,9 @@ gulp.task('pug', function () {
 gulp.task('watch', function () {
     gulp.watch(['assets/css/**/*.scss', 'assets/css/**/*.sass'], gulp.series('sass'));
     gulp.watch('assets/js/**', gulp.series('jekyll-rebuild'));
-    gulp.watch(['index.html', '_layouts/*.html', '_includes/*', '_posts/*', '*.md'], gulp.series('jekyll-rebuild'));
+    gulp.watch(['index.html', '_layouts/**/*', '_includes/**/*', '_posts/**/*', '*.md', 'ai-for-educators/**/*'], gulp.series('jekyll-rebuild'));
     gulp.watch('_pugfiles/*.pug', gulp.series('pug', 'jekyll-rebuild'));
 });
-
 
 
 
