@@ -1,3 +1,8 @@
 name: Prashant Shukla
 markdown: kramdown
 exclude: ["node_modules", "gulpfile.js", "package.json"]
+
+# _config.yml
+sass:
+  load_paths:
+    - assets/css/0-tools

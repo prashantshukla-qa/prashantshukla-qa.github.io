@@ -11,6 +11,7 @@
   "author": "Prashant Shukla",
   "license": "ISC",
   "devDependencies": {
+    "bourbon": "^7.3.0",
     "browser-sync": "^3.0.4",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",

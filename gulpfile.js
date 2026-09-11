@@ -4,6 +4,7 @@ var sass = require('gulp-sass')(require('sass'));
 var prefix = require('gulp-autoprefixer');
 var cp = require('child_process');
 var pug = require('gulp-pug');
+const path = require('path');
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -48,7 +49,7 @@ gulp.task('jekyll-rebuild', gulp.series('jekyll-build', function (done) {
 gulp.task('sass', function () {
     return gulp.src('assets/css/main.scss')
         .pipe(sass({
-            includePaths: ['css'],
+            includePaths: [ path.join(__dirname, 'assets', 'css', '0-tools'), path.join(__dirname, 'assets', 'css', '1-base'), path.join(__dirname, 'assets', 'css', '3-sections') ],
             silenceDeprecations: ['import', 'global-builtin', 'if-function', 'color-functions', 'legacy-js-api'],
             quietDeps: true
         }).on('error', sass.logError))
