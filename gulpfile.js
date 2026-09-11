@@ -94,10 +94,9 @@ gulp.task('pug', function () {
 gulp.task('watch', function () {
     gulp.watch(['assets/css/**/*.scss', 'assets/css/**/*.sass'], gulp.series('sass'));
     gulp.watch('assets/js/**', gulp.series('jekyll-rebuild'));
-    gulp.watch(['index.html', '_layouts/*.html', '_includes/*', '_posts/*', '*.md'], gulp.series('jekyll-rebuild'));
+    gulp.watch(['index.html', '_layouts/**/*', '_includes/**/*', '_posts/**/*', '*.md', 'ai-for-educators/**/*'], gulp.series('jekyll-rebuild'));
     gulp.watch('_pugfiles/*.pug', gulp.series('pug', 'jekyll-rebuild'));
 });
-
 
 
 
