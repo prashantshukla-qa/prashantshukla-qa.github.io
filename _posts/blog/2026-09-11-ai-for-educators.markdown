@@ -12,7 +12,7 @@ Artificial Intelligence is reshaping how we learn and teach. Here is the interac
 
 -----
 
-##### 📽️ Interactive Workshop Slides
+##### INTERACTIVE WORKSHOP SLIDES 📽️
 
 You can navigate through the presentation directly below using your arrow keys or swipe gestures, or open it in a dedicated tab.
 
@@ -31,9 +31,8 @@ You can navigate through the presentation directly below using your arrow keys o
   </a>
 </p>
 <br>
-##### 📋 Workshop Highlights & Key Takeaways 
-<br>
-
+##### WORKSHOP HIGHLIGHTS & KEY TAKEAWAYS 📋 
+---
 ##### 1. AI Literacies for Educators
 Understanding what Generative AI and Large Language Models (LLMs) can and cannot do:
 - **Demystifying AI:** Generative vs. Traditional AI and how LLMs work.
